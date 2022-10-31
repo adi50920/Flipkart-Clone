@@ -1,5 +1,7 @@
 
 //component
+import React from 'react'
+
 import{Box} from '@mui/material'
 import NavBar from'./NavBar'
 import Banner from'./Banner'
