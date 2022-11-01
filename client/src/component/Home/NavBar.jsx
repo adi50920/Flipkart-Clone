@@ -8,17 +8,19 @@ display:flex;
 margin:55px 320px 0 320px;
 justify-content:space-between;
 text-align:center;
+padding:12px 8px;
+margin:0px;
+display:flex;
+flex-direction:comun;
+justify-content:space-between;
 `
 const Container = styled(Box)`
-padding:12px 8px;
 `
 
 const Text=styled(Typography)
 `
 text-align:center;
-font-size:14px;
-font-weight:550;
-font-family:inherit;
+
 `
 
 const NavBar =() =>{

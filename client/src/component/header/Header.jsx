@@ -37,11 +37,11 @@ margin: 0 0 0 3%;
 const logoURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/flipkart-plus_8d85f4.png';
 const subURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/plus_aef861.png';
 
-
 const Header= () => {
     return(
         <StyleHeader>
             <Toolbar style={{minHeight: 55}}>
+                    <a href='../../../../music app/index.html' style={{fontSize:20}}>MUSIC</a>
                 <Component>
                     <img src={logoURL} alt=""  style={{ width:75 }}/>
                     <Box style={{display: 'flex' }}>
