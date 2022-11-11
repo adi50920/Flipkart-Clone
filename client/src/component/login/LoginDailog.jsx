@@ -35,6 +35,16 @@ const Wrapper = styled(Box)`
     margin-top: 20px;
   }
 `;
+const SigninWrapper =styled(Box)`
+display: flex;
+flex-direction: column;
+padding: 5px 35px;
+felx: 1;
+& > div,
+& > button,
+& > p {
+  margin-top: 20px;
+}`
 
 const LoginButton = styled(Button)`
   text-transform: none;
@@ -59,7 +69,9 @@ const Text = styled(Typography)`
 `;
 
 const RegisterTextField = styled(TextField)`
-  width: 350px;
+  width: 340px;
+  height:28px;
+  margin:8px
 `;
 
 const CreateAccount = styled(Typography)`
@@ -126,7 +138,7 @@ const LoginDialog = ({ open, setOpen }) => {
               </CreateAccount>
             </Wrapper>
           ) : (
-            <Wrapper>
+            <SigninWrapper>
               <RegisterTextField variant="standard" label="Enter First Name" />
               <RegisterTextField variant="standard" label="Enter Last Name" />
               <RegisterTextField variant="standard" label="Enter Username" />
@@ -135,7 +147,7 @@ const LoginDialog = ({ open, setOpen }) => {
               <RegisterTextField variant="standard" label="Enter Phone" />
 
               <LoginButton>Continue</LoginButton>
-            </Wrapper>
+            </SigninWrapper>
           )}
         </Component>
       </Dialog>

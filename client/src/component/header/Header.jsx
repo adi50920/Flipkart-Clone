@@ -1,6 +1,7 @@
 import {AppBar,Toolbar,Box,styled,Typography} from '@mui/material'
 import { height } from '@mui/system'
-
+import { Link } from 'react-router-dom';
+import LibraryMusicSharpIcon from '@mui/icons-material/LibraryMusicSharp';
 //component
 
 import Search from './Search'
@@ -20,6 +21,11 @@ margin-right:0;
 
 
 `
+
+const TextMusic= styled(Typography)`
+    color: black;
+
+    `
 const SubHeading = styled(Typography)
 `
 font-size: 10px;
@@ -41,7 +47,10 @@ const Header= () => {
     return(
         <StyleHeader>
             <Toolbar style={{minHeight: 55}}>
-                    <a href='../../../../music app/index.html' style={{fontSize:20}}>MUSIC</a>
+                <TextMusic>
+
+            <Link to={`/music`}><LibraryMusicSharpIcon/></Link>
+                </TextMusic>
                 <Component>
                     <img src={logoURL} alt=""  style={{ width:75 }}/>
                     <Box style={{display: 'flex' }}>
