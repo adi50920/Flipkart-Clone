@@ -1,7 +1,6 @@
 import {AppBar,Toolbar,Box,styled,Typography} from '@mui/material'
 import { height } from '@mui/system'
-import { Link } from 'react-router-dom';
-import LibraryMusicSharpIcon from '@mui/icons-material/LibraryMusicSharp';
+
 //component
 
 import Search from './Search'

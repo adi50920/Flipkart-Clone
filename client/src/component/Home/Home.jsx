@@ -1,4 +1,10 @@
 
+<<<<<<< HEAD
+=======
+//component
+import React from 'react'
+
+>>>>>>> feaa2d0c7ea81367206fd9f83d9d73feb85f3c76
 import{Box} from '@mui/material'
 import NavBar from'./NavBar'
 import Banner from'./Banner'

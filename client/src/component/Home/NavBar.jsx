@@ -1,6 +1,7 @@
 
-import constant, { navData } from '../../constants/data'
+import { navData } from '../../constants/data'
 import {Box, styled, Typography} from'@mui/material'
+import React from 'react'
 
 
 const NavBarFlex = styled(Box)`

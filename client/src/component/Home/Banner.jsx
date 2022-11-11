@@ -4,8 +4,8 @@ import Carousel from "react-multi-carousel";
 import {bannerData} from'../../constants/data'
 import {styled} from'@mui/material'
 import 'react-multi-carousel/lib/styles.css';
-import { display } from "@mui/system";
 
+import React from 'react'
 
 
 
