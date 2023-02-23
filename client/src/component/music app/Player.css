@@ -8,7 +8,7 @@
     display: flex;
     flex-flow: column;
     position: relative;
-    background: aliceblue;
+    background: #fff;
 }
 
 .Player .ctr-1 {
@@ -274,7 +274,7 @@
     border-radius: 100000px;
     padding: 4px;
     box-sizing: content-box;
-    background: aliceblue;
+    background: rgb(9, 10, 10);
     outline: none;
     border: none;
     border: 3px solid #333;

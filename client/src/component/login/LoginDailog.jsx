@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState ,useContext } from "react";   //useContext
+import {DataContext} from '../../context/DataProvider';
 
 import {
   Box,
@@ -10,6 +11,8 @@ import {
 } from "@mui/material";
 import React from "react";
 
+import { authenticateSignup } from "../../service/api";
+
 const Component = styled(Box)`
   height: 70vh;
   width: 90vh;
@@ -20,7 +23,7 @@ const Image = styled(Box)`
   background: #2874f0
     url(https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/login_img_c4a81e.png)
     no-repeat center 85%;
-  height: 80%;
+  height: 83%;
   width: 28%;
   padding: 40px 35px;
 `;
@@ -92,6 +95,19 @@ const accountInitialValues = {
     heading: "Looks like you are new here",
   },
 };
+
+const signupInitialValues = {
+  firstname: '',
+  lastname:'',
+  username:'',
+  email:'',
+  password:'',
+  phone:'',
+
+
+}
+
+
 const LoginDialog = ({ open, setOpen }) => {
   const handleClose = () => {
     setOpen(false);
@@ -100,7 +116,22 @@ const LoginDialog = ({ open, setOpen }) => {
   const [account, toggleAccount] = useState(accountInitialValues.login);
   const toggleSignup = () => {
     toggleAccount(accountInitialValues.signup);
+    
   };
+  const{ setAccount} = useContext(DataContext);
+  const [signup, setSignup] = useState(signupInitialValues);
+
+  const onInputchange = (e) => {
+    setSignup({ ...signup, [e.target.name]: e.target.value });
+     
+  }
+
+  const signupUser = async() => {
+    let response = await authenticateSignup(signup);
+     if (!response) return;
+    handleClose();
+    setAccount(signup.firstname);
+  }
 
   return (
     <div>
@@ -139,14 +170,14 @@ const LoginDialog = ({ open, setOpen }) => {
             </Wrapper>
           ) : (
             <SigninWrapper>
-              <RegisterTextField variant="standard" label="Enter First Name" />
-              <RegisterTextField variant="standard" label="Enter Last Name" />
-              <RegisterTextField variant="standard" label="Enter Username" />
-              <RegisterTextField variant="standard" label="Enter E-mail" />
-              <RegisterTextField variant="standard" label="Enter Password" />
-              <RegisterTextField variant="standard" label="Enter Phone" />
+              <RegisterTextField variant="standard" onChange={(e)=> onInputchange(e)} name='firstname' label="Enter First Name" />
+              <RegisterTextField variant="standard" onChange={(e)=> onInputchange(e)} name='lastname' label="Enter Last Name" />
+              <RegisterTextField variant="standard" onChange={(e)=> onInputchange(e)} name='username' label="Enter Username" />
+              <RegisterTextField variant="standard" onChange={(e)=> onInputchange(e)} name='email' label="Enter E-mail" />
+              <RegisterTextField variant="standard" onChange={(e)=> onInputchange(e)} name='password' label="Enter Password" />
+              <RegisterTextField variant="standard" onChange={(e)=> onInputchange(e)} name='phone' label="Enter Phone" />
 
-              <LoginButton>Continue</LoginButton>
+              <LoginButton onClick={() => {signupUser();}}>Continue</LoginButton>
             </SigninWrapper>
           )}
         </Component>

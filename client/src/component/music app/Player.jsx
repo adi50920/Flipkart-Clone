@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import './Player.css';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import TracksList from './TracksList';
+import DB from './db';
 import { Link } from 'react-router-dom';
 
-import DB from './db'
 
-// eslint-disable-next-line
+
 String.prototype.toHHMMSS = function () {
-    // snippet taken from stackoverflow
-    var sec_num = parseInt(this, 10); // don't forget the second param
+    
+    var sec_num = parseInt(this, 10); 
     var hours   = Math.floor(sec_num / 3600);
     var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
     var seconds = sec_num - (hours * 3600) - (minutes * 60);
 
-    // if (hours   < 10) {hours   = "0"+hours;}
-    // if (minutes < 10) {minutes = "0"+minutes;}
+    
     if (seconds < 10) {seconds = "0"+seconds;}
     return (hours>0?hours+':':"")+minutes+':'+seconds;
 }
@@ -474,9 +474,20 @@ class Player extends Component {
     render() {
         return (
             <div className="Player">
+                <Link to={`/home`}><ArrowBackIosIcon/></Link>
 
-<Link to={`/home`}><ChevronLeftIcon/></Link>
-      
+                <TracksList 
+                    sidebar={this.state.sidebar}
+                    tracksList={this.state.tracksList}
+                    currentTrackIndex={this.state.currentTrackIndex}
+                    currentTrackID={this.state.trackID}
+                    favsonly={this.state.showfavsonly}
+                    searchString={this.state.searchString}
+                    updateSearchString={this.updateSearchString}
+                    toggleSidebar={this.toggleSidebar}
+                    toggleShowfavsonly={this.toggleShowfavsonly}
+                    selectThisTrack={this.selectThisTrack}
+                />
                 <div className="ctr-1">
                     <p className="play-pause-text">
                         <strong>
@@ -484,7 +495,12 @@ class Player extends Component {
                         </strong>
                         <span>{this.state.currentTime} / {this.state.totalDuration}</span>
                     </p>
-
+                    <button 
+                        className="heart-icon"
+                        dangerouslySetInnerHTML={{__html: this.state.isFavourite ? `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 47 45" style="enable-background:new 0 0 47 45;" xml:space="preserve"><path d="M46.8,14.8c0,16-21.3,29.1-22.2,29.7c-0.3,0.2-0.7,0.3-1,0.3c-0.4,0-0.7-0.1-1-0.3C21.6,43.9,0.2,30.8,0.2,14.8 c0-8.3,6-14.6,13.9-14.6c2.6,0,5.1,0.7,7.3,2c0.7,0.4,1.5,0.9,2.1,1.5c0.7-0.6,1.4-1,2.1-1.5c2.2-1.3,4.7-2,7.3-2 C40.8,0.2,46.8,6.5,46.8,14.8z"/></svg>`
+                        : `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 47 45" style="enable-background:new 0 0 47 45;" xml:space="preserve"><path d="M32.9,0.2c-2.6,0-5.1,0.7-7.3,2c-0.7,0.4-1.5,0.9-2.1,1.5c-0.7-0.6-1.4-1.1-2.1-1.5c-2.2-1.3-4.7-2-7.3-2 C6.2,0.2,0.2,6.5,0.2,14.8c0,16,21.3,29.1,22.2,29.7c0.3,0.2,0.7,0.3,1,0.3c0.4,0,0.7-0.1,1-0.3c0.9-0.6,22.2-13.7,22.2-29.7 C46.8,6.5,40.8,0.2,32.9,0.2z M23.5,40.4C19.3,37.6,4.2,26.7,4.2,14.8c0-6,4.2-10.6,9.9-10.6c1.9,0,3.7,0.5,5.3,1.4 c1,0.6,1.9,1.3,2.6,2.1c0.8,0.9,2.2,0.9,3,0c0.8-0.8,1.6-1.6,2.6-2.1c1.6-0.9,3.4-1.4,5.3-1.4c5.6,0,9.9,4.6,9.9,10.6 C42.8,26.7,27.6,37.6,23.5,40.4z"/></svg>`}}
+                        onClick={this.toggleFavourite}
+                    ></button>
                 </div>
                 <p className="track-title">{this.state.trackTitle}</p>
                 <div className="bottom-ctr">
@@ -581,7 +597,19 @@ class Player extends Component {
                             <span>{parseInt(this.state.volume * 100, 10)}</span>
                         </div>
                     </div>
-              
+                    <div className="bottom-icons-ctr">
+                        <button
+                            className={this.state.sidebar ? "tracks-list-btn active" : "tracks-list-btn"}
+                            dangerouslySetInnerHTML={{__html:`<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 225 110" style="enable-background:new 0 0 225 110;" xml:space="preserve"><path d="M224.2,55c0,5-4,9-9,9H9.8c-5,0-9-4-9-9s4-9,9-9h205.3C220.1,46,224.2,50,224.2,55z M180.5,83.8H9.8c-5,0-9,4-9,9s4,9,9,9 h170.6c5,0,9-4,9-9S185.4,83.8,180.5,83.8z M9.8,26.2h135.7c5,0,9-4,9-9s-4-9-9-9H9.8c-5,0-9,4-9,9S4.9,26.2,9.8,26.2z"/></svg>`}}
+                            onClick={this.toggleSidebar}
+                        ></button>
+                        <button
+                            className={this.state.loop ? "loop-btn active" : "loop-btn"}
+                            dangerouslySetInnerHTML={{__html:`<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 225 110" style="enable-background:new 0 0 225 110;" xml:space="preserve"><path d="M224.2,66.5c0,23.6-19.2,42.8-42.8,42.8H43.6C20,109.3,0.8,90.1,0.8,66.5S20,23.7,43.6,23.7h30c5,0,9,4,9,9s-4,9-9,9h-30 c-13.7,0-24.8,11.1-24.8,24.8S30,91.3,43.6,91.3h137.7c13.7,0,24.8-11.1,24.8-24.8S195,41.7,181.4,41.7h-39.9l8.1,8.1 c3.5,3.5,3.5,9.2,0,12.7c-1.8,1.8-4.1,2.6-6.4,2.6s-4.6-0.9-6.4-2.6L113.3,39c-3.5-3.5-3.5-9.2,0-12.7l22.9-22.9 c3.5-3.5,9.2-3.5,12.7,0c3.5,3.5,3.5,9.2,0,12.7l-7.6,7.6c0,0,0,0,0,0h40C205,23.7,224.2,42.9,224.2,66.5z"/></svg>`}}
+                            onClick={this.toggleLoop}
+                        ></button>
+                        
+                    </div>
                 </div>
             </div>
         )

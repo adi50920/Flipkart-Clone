@@ -1,106 +1,87 @@
-// -- Base URL
-// https://raw.githubusercontent.com/ahmednooor/music-player-react/gh-pages/static/media
 
 const musictrack1 = 
-    'https://pagalfree.com/download/320-Drishyam%202%20Title%20Track%20-%20Drishyam%202%20320%20Kbps.mp3';
+'https://www.pagalvvorld.com/wp-content/uploads/2022/09/Manavalan-Thug-Thallumaala.mp3';
 const musictrack2 = 
-    'https://raw.githubusercontent.com/ahmednooor/music-player-react/gh-pages/static/media/Air-Astronaut-Ape.a2cb96cd.mp3';
+'https://pagalworld4u.in/download/get.php?id=Baazigar Song DIVINE.mp3&amp;yt=sek3FhByr6w';
 const musictrack3 = 
-    'https://raw.githubusercontent.com/ahmednooor/music-player-react/gh-pages/static/media/bensound-scifi.89932737.mp3';
+'https://www.thinknews.com.ng/wp-content/uploads/2022/09/Sam_Smith_Ft_Kim_Petras_-_Unholy_(thinknews.com.ng).mp3';
 const musictrack4 = 
-    'https://raw.githubusercontent.com/ahmednooor/music-player-react/gh-pages/static/media/BK-42-Space-Outpost-Astronaut-Ape.7b317a42.mp3';
+'https://media.hungama.com/c/4/5f4/1ab/76278340/76278340_128.mp3?0DSooaMHXI1_sp4vCQQIqSTmc68YMMe0e1FkZf9lf7I9PyWYgixO_ld9OwIBtbB5y8zxd4pEUs4Acwq-txWCb92hCRoLKfCYKDA_q9oJvcUJsntG2e9EcSuQLN8s7fOoXyErsw';
 const musictrack5 = 
-    'https://raw.githubusercontent.com/ahmednooor/music-player-react/gh-pages/static/media/Earthy_Story.40dffc54.mp3';
+'https://pagalworld4u.in/download/get.php?id=Jaadugar Song Paradox.mp3&amp;yt=IOcGS4D1tM0';
 const musictrack6 = 
-    'https://raw.githubusercontent.com/ahmednooor/music-player-react/gh-pages/static/media/Moon-Station-Traffic-Astronaut-Ape.1b572be4.mp3';
+'https://djmaza.live/files/download/type/320/id/7313';
 const musictrack7 = 
-    'https://raw.githubusercontent.com/ahmednooor/music-player-react/gh-pages/static/media/Nebula-Astronaut-Ape.b00bc7d7.mp3';
+'https://pagalsong.in/download/77243/Gang Wale Munde 128 KBPS mp3';
 const musictrack8 = 
-    'https://raw.githubusercontent.com/ahmednooor/music-player-react/gh-pages/static/media/One-Small-Step-Astronaut-Ape.85f19e55.mp3';
+'https://pagalworld4u.in/download/get.php?id=Maan Meri Jaan Song King.mp3&amp;yt=VuG7ge_8I2Y';
 const musictrack9 = 
-    'https://raw.githubusercontent.com/ahmednooor/music-player-react/gh-pages/static/media/Orbiter-Astronaut-Ape.55c76370.mp3';
+'https://pagalworld4u.in/download/get.php?id=Rihaayi Song Paradox.mp3&amp;yt=uTgsRbvLhUI';
 const musictrack10 = 
-    'https://raw.githubusercontent.com/ahmednooor/music-player-react/gh-pages/static/media/Pulsar-Astronaut-Ape.d5910e26.mp3';
-const musictrack11 = 
-    'https://raw.githubusercontent.com/ahmednooor/music-player-react/gh-pages/static/media/Space-Travel-preview.027952f5.mp3';
-const musictrack12 = 
-    'https://raw.githubusercontent.com/ahmednooor/music-player-react/gh-pages/static/media/Time-Portal-preview.e1fb4cae.mp3';
-const musictrack13 = 
-    'https://raw.githubusercontent.com/ahmednooor/music-player-react/gh-pages/static/media/Unknown-Planet-preview.7f6e5363.mp3';
-const musictrack14 = 
-    'https://raw.githubusercontent.com/ahmednooor/music-player-react/gh-pages/static/media/Wagner-Ride_of_the_Valkyries.a77bc956.mp3';
+'//mp3tau.wapkiz.site/filedownload/2537291/Gypsy-(mp3tau.wapkiz.site).mp3';
+
 
 let tracksList = [
     {
         id: 1,
-        title: 'Drishyam',
+        title: 'Manavalan Thug ',
         trackURL: musictrack1,
+        isFavourite: false,
     },
     {
         id: 2,
-        title: 'Air - Astronaut Ape',
+        title: 'Baazigar',
         trackURL: musictrack2,
+        isFavourite: true,
     },
     {
         id: 3,
-        title: 'Ben Sound - SciFi',
+        title: 'Uholy',
         trackURL: musictrack3,
+        isFavourite: true,
     },
     {
         id: 4,
-        title: 'BK 42 Space Outpost - Astronaut Ape',
+        title: 'Suna Hai',
         trackURL: musictrack4,
+        isFavourite: false,
     },
     {
         id: 5,
-        title: 'Earthy Story - Jukedeck',
+        title: 'Jaadugar',
         trackURL: musictrack5,
+        isFavourite: false,
     },
     {
         id: 6,
-        title: 'Moon Station Traffic - Astronaut Ape',
+        title: 'NCR',
         trackURL: musictrack6,
+        isFavourite: true,
     },
     {
         id: 7,
-        title: 'Nebula - Astronaut Ape',
+        title: 'Gang aale Munde',
         trackURL: musictrack7,
+        isFavourite: true,
     },
     {
         id: 8,
-        title: 'One Small Step - Astronaut Ape',
+        title: 'Maan meri jaan',
         trackURL: musictrack8,
+        isFavourite: false,
     },
     {
         id: 9,
-        title: 'Orbiter - Astronaut Ape',
+        title: 'Rihayi',
         trackURL: musictrack9,
+        isFavourite: false,
     },
     {
         id: 10,
-        title: 'Pulsar - Astronaut Ape',
+        title: 'Gypsy',
         trackURL: musictrack10,
-    },
-    {
-        id: 11,
-        title: 'Space Travel Preview - DL Sounds',
-        trackURL: musictrack11,
-    },
-    {
-        id: 12,
-        title: 'Time Portal Preview - DL Sounds',
-        trackURL: musictrack12,
-    },
-    {
-        id: 13,
-        title: 'Unknown Planet Preview - DL Sounds',
-        trackURL: musictrack13,
-    },
-    {
-        id: 14,
-        title: 'Wagner - Ride of the Valkyries',
-        trackURL: musictrack14,
-    },
+        isFavourite: true,
+    }
 ];
 
 export default tracksList;
